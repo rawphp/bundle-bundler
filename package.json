@@ -1,6 +1,80 @@
 {
   "name": "bundle-bundler",
   "version": "0.0.2",
-  "main": "index.js",
-  "license": "MIT"
+  "main": "lib/",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "env TZ='UTC' NODE_ENV=test mocha test --compilers js:babel-core/register --require babel-polyfill --recursive",
+    "coverage": "./node_modules/.bin/istanbul cover --verbose --report text --report lcov _mocha -- --compilers js:babel-core/register --require babel-polyfill tests --recursive",
+    "slate": "rm -rf node_modules/ && yarn install",
+    "watch": "npm-watch",
+    "clean": "rm -rf lib",
+    "build": "npm run clean && $(npm bin)/babel ./src/ --ignore node_modules --out-dir lib",
+    "build-docs": "./node_modules/.bin/esdoc -c esdoc.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:rawphp/bundle-bundler.git"
+  },
+  "files": [
+    "lib/",
+    "LICENSE",
+    "README.md"
+  ],
+  "dependencies": {
+    "bluebird": "3.x.x",
+    "fs-promise": "2.x.x",
+    "lutils": "2.x.x",
+    "minimatch": "3.x.x",
+    "resolve-pkg": "1.x.x",
+    "walk": "2.x.x",
+    "yazl": "2.x.x"
+  },
+  "devDependencies": {
+    "babel-cli": "6.x.x",
+    "babel-core": "6.x.x",
+    "babel-eslint": "7.x.x",
+    "babel-loader": "6.x.x",
+    "babel-preset-env": "1.x.x",
+    "babel-preset-stage-3": "6.x.x",
+    "chai": "3.x.x",
+    "dirty-chai": "1.x.x",
+    "esdoc": "0.4.8",
+    "esdoc-es7-plugin": "0.x.x",
+    "eslint": "3.x.x",
+    "eslint-config-airbnb": "14.x.x",
+    "eslint-plugin-import": "2.x.x",
+    "eslint-plugin-jsx-a11y": "4.x.x",
+    "eslint-plugin-react": "6.x.x",
+    "eslint-plugin-require-jsdoc": "1.x.x",
+    "istanbul": "^1.1.0-alpha.1",
+    "json-loader": "0.x.x",
+    "mocha": "3.x.x",
+    "npm-watch": "0.x.x",
+    "sinon": "2.x.x",
+    "sinon-chai": "2.x.x",
+    "webpack": "2.x.x"
+  },
+  "watch": {
+    "build": {
+      "patterns": [
+        "."
+      ],
+      "extensions": [
+        "js",
+        "json"
+      ],
+      "ignore": "lib/"
+    },
+    "test": {
+      "patterns": [
+        "src",
+        "test"
+      ],
+      "extensions": "js",
+      "ignore": "",
+      "quiet": true
+    }
+  }
 }

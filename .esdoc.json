@@ -1,0 +1,17 @@
+{
+  "source": "./src",
+  "destination": "./api",
+  "excludes": [],
+  "access": [
+    "public",
+    "protected"
+  ],
+  "debug": false,
+  "index": "./README.md",
+  "title": "Tracking Pipeline",
+  "plugins": [
+    {
+      "name": "esdoc-es7-plugin"
+    }
+  ]
+}
