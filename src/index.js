@@ -39,12 +39,12 @@ export default class Bundler {
   /**
    * Bundle the project.
    *
-   * @param {Object} config configuration object
-   * @param {String} config.output the file name
-   * @param {String[]} include
-   * @param {String[]} exclude
-   * @param {String[]} moduleIncludes
-   * @param {String[]} moduleExcludes
+   * @param {Object}   config         configuration object
+   * @param {String}   config.output  the file name
+   * @param {String[]} include        list of source includes
+   * @param {String[]} exclude        list of source excludes
+   * @param {String[]} moduleIncludes list of module includes
+   * @param {String[]} moduleExcludes list of module excludes
    *
    * @returns {undefined}
    */

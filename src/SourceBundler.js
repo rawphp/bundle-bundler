@@ -65,7 +65,7 @@ export default class SourceBundler {
 
       const filePath = path.join(basePath, stats.name);
 
-      const testPattern = (pattern) => {
+      const testPattern = (pattern) => { // eslint-disable-line
         return typeOf.isRegExp(pattern)
           ? pattern.test(relPath)
           : glob(relPath, pattern, { dot: true });
@@ -75,9 +75,9 @@ export default class SourceBundler {
       const excluded = exclude.some(testPattern);
 
       /**
-      *  When a pattern matches an exclude, it skips
-      *  When a pattern doesnt match an include, it skips
-      */
+       * When a pattern matches an exclude, it skips
+       * When a pattern doesnt match an include, it skips
+       */
       if (!included || (excluded && !included)) return next();
 
       await handleFile({

@@ -53,9 +53,14 @@ export default class ModuleBundler {
 
     await Promise.map(this.modules, async ({ packagePath, relativePath }) => {
       const onFile = async (basePath, stats, next) => {
-        const relPath = path.join(
-          relativePath, basePath.split(relativePath)[1], stats.name
-        ).replace(/^\/|\/$/g, '');
+        let moduleName = basePath.split(relativePath)[1];
+
+        if (typeof moduleName === 'undefined') {
+          moduleName = '';
+        }
+
+        const relPath = path.join(relativePath, moduleName, stats.name)
+          .replace(/^\/|\/$/g, '');
 
         const filePath = path.join(basePath, stats.name);
 
