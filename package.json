@@ -1,5 +1,6 @@
 {
   "name": "bundle-bundler",
+  "description": "Build and package your app as a zip",
   "version": "0.2.0",
   "main": "lib/",
   "license": "MIT",
