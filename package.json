@@ -6,7 +6,9 @@
   "scripts": {
     "lint": "eslint .",
     "test": "env TZ='UTC' NODE_ENV=test mocha test --compilers js:babel-core/register --require babel-polyfill --recursive",
-    "coverage": "./node_modules/.bin/istanbul cover --verbose --report text --report lcov _mocha -- --compilers js:babel-core/register --require babel-polyfill tests --recursive",
+    "coverage": "./node_modules/.bin/istanbul cover --verbose --report text --report lcov _mocha -- --compilers js:babel-core/register --require babel-polyfill test --recursive",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "codeclimate": "./node_modules/.bin/codeclimate-test-reporter < coverage/lcov.info",
     "slate": "rm -rf node_modules/ && yarn install",
     "watch": "npm-watch",
     "clean": "rm -rf lib",
@@ -51,6 +53,7 @@
     "istanbul": "^1.1.0-alpha.1",
     "json-loader": "0.x.x",
     "mocha": "3.x.x",
+    "mocha-lcov-reporter": "1.x.x",
     "npm-watch": "0.x.x",
     "sinon": "2.x.x",
     "sinon-chai": "2.x.x",

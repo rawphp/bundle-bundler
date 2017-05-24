@@ -1,0 +1,21 @@
+language: node_js
+
+node_js:
+    - "5"
+    - "6"
+    - "7"
+
+sudo: false
+
+script:
+    - yarn lint
+    - yarn test
+    - yarn coverage
+
+after_success:
+    - yarn coveralls
+    - yarn codeclimate
+
+notifications:
+    email:
+        tom@x-c-o-d-e.com

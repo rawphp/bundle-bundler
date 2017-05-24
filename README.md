@@ -1,5 +1,7 @@
 # Bundle Bundler
 
+[![Coverage Status](https://coveralls.io/repos/github/rawphp/bundle-bundler/badge.svg?branch=master)](https://coveralls.io/github/rawphp/bundle-bundler?branch=master)
+
 The library builds Nodejs applications and creates a zip bundle.
 
 This will bundle the application for production use like `npm install --production` would.
