@@ -1,5 +1,6 @@
 # Bundle Bundler
 
+[![Build Status](https://travis-ci.org/rawphp/bundle-bundler.svg?branch=master)](https://travis-ci.org/rawphp/bundle-bundler)
 [![Coverage Status](https://coveralls.io/repos/github/rawphp/bundle-bundler/badge.svg?branch=master)](https://coveralls.io/github/rawphp/bundle-bundler?branch=master)
 
 The library builds Nodejs applications and creates a zip bundle.

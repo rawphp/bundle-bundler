@@ -15,6 +15,9 @@
     "build": "npm run clean && $(npm bin)/babel ./src/ --ignore node_modules --out-dir lib",
     "build-docs": "./node_modules/.bin/esdoc -c esdoc.json"
   },
+  "engines": {
+    "node": ">=6"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:rawphp/bundle-bundler.git"
