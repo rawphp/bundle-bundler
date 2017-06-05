@@ -8,7 +8,7 @@
   ],
   "debug": false,
   "index": "./README.md",
-  "title": "Tracking Pipeline",
+  "title": "Bundle Bundler",
   "plugins": [
     {
       "name": "esdoc-es7-plugin"
