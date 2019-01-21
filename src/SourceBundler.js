@@ -61,7 +61,7 @@ export default class SourceBundler {
        */
       const relPath = path.join(
         basePath.split(this.rootDir)[1], stats.name,
-      ).replace(/^\/|\/$/g, '');
+      ).replace(/^\/|\/$|^\\|\\$/g, '');
 
       const filePath = path.join(basePath, stats.name);
 
