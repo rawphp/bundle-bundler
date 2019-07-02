@@ -19,4 +19,4 @@ after_success:
 
 notifications:
     email:
-        tom@x-c-o-d-e.com
+        tom.kaczocha.code@gmail.com
