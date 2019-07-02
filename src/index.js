@@ -1,7 +1,7 @@
 import Promise from 'bluebird';
 import path from 'path';
 import { ZipFile } from 'yazl';
-import fsp from 'fs-promise';
+import fs from 'fs-extra';
 import ModuleBundler from './ModuleBundler';
 import SourceBundler from './SourceBundler';
 
@@ -56,7 +56,7 @@ export default class Bundler {
     moduleExcludes = [],
   }) {
     // make sure root directory exists
-    await fsp.ensureDir(this.rootDir);
+    await fs.ensureDir(this.rootDir);
 
     // bundle sources
     await this.sourceBundler.bundle({
@@ -74,7 +74,7 @@ export default class Bundler {
     const zipPath = path.resolve(output);
 
     await new Promise((resolve, reject) => {
-      this.artifact.outputStream.pipe(fsp.createWriteStream(zipPath))
+      this.artifact.outputStream.pipe(fs.createWriteStream(zipPath))
         .on('error', reject)
         .on('close', resolve);
 

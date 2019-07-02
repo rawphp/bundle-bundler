@@ -1,5 +1,5 @@
 import chai, { expect } from 'chai';
-import fsp from 'fs-promise';
+import fs from 'fs-extra';
 import dirtyChai from 'dirty-chai';
 import sinonChai from 'sinon-chai';
 import BabelTrasform from './../../../src/transforms/Babel';
@@ -9,7 +9,7 @@ chai.use(sinonChai);
 
 const logger = console;
 
-const config = fsp.readJsonSync('.babelrc');
+const config = fs.readJsonSync('.babelrc');
 
 logger.log(JSON.stringify(config));
 
@@ -26,7 +26,7 @@ describe('BabelTrasform', () => {
 
   it('runs successfully', async () => {
     const result = transform.run({
-      code: await fsp.readFile(`${__dirname}/../../fixture/utils.js`),
+      code: await fs.readFile(`${__dirname}/../../fixture/utils.js`),
       map: '',
       relPath: './../../fixture/utils.js',
     });

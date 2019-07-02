@@ -1,5 +1,5 @@
 import chai, { expect } from 'chai';
-import fsp from 'fs-promise';
+import fs from 'fs-extra';
 import dirtyChai from 'dirty-chai';
 import sinonChai from 'sinon-chai';
 import UglifyTrasform from './../../../src/transforms/Uglify';
@@ -20,7 +20,7 @@ describe('UglifyTrasform', () => {
 
   it('runs successfully', async () => {
     const result = transform.run({
-      code: await fsp.readFile(`${__dirname}/../../fixture/utils.js`),
+      code: await fs.readFile(`${__dirname}/../../fixture/utils.js`),
       map: '',
       filePath: './../../fixture/utils.js',
     });

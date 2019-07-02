@@ -2,7 +2,7 @@ import chai, { expect } from 'chai';
 import dirtyChai from 'dirty-chai';
 import sinonChai from 'sinon-chai';
 import Yazl, { ZipFile } from 'yazl';
-import fsp from 'fs-promise';
+import fs from 'fs-extra';
 import { getWalker, handleFile } from './../../src/utils';
 import BabelTrasform from './../../src/transforms/Babel';
 import UglifyTrasform from './../../src/transforms/Uglify';
@@ -11,7 +11,7 @@ chai.use(dirtyChai);
 chai.use(sinonChai);
 
 describe('utils', () => {
-  const babelrc = fsp.readJsonSync('.babelrc');
+  const babelrc = fs.readJsonSync('.babelrc');
   const transforms = [
     new BabelTrasform(babelrc),
     new UglifyTrasform(null),

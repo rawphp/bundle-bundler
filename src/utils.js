@@ -1,7 +1,7 @@
 import Promise from 'bluebird';
 import walk from 'walk';
 import path from 'path';
-import fsp from 'fs-promise';
+import fs from 'fs-extra';
 import { typeOf } from 'lutils';
 
 /**
@@ -53,7 +53,7 @@ export async function handleFile({
     // JAVASCRIPT
     //
 
-    let code = await fsp.readFile(filePath, 'utf8');
+    let code = await fs.readFile(filePath, 'utf8');
     let map = '';
 
     /**

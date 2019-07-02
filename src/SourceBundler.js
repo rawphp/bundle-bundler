@@ -1,5 +1,5 @@
 import path from 'path';
-import fsp from 'fs-promise';
+import fs from 'fs-extra';
 import { typeOf } from 'lutils';
 import Yazl from 'yazl';
 import glob from 'minimatch';
@@ -119,8 +119,8 @@ export default class SourceBundler {
       if (!typeOf.isObject(babelQuery)) {
         const babelrcPath = path.join(this.rootDir, '.babelrc');
 
-        babelQuery = fsp.existsSync(babelrcPath)
-          ? JSON.parse(await fsp.readFile(babelrcPath))
+        babelQuery = fs.existsSync(babelrcPath)
+          ? JSON.parse(await fs.readFile(babelrcPath))
           : babelQuery;
       }
 

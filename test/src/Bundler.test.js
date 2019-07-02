@@ -2,7 +2,7 @@ import chai, { expect } from 'chai';
 import dirtyChai from 'dirty-chai';
 import sinonChai from 'sinon-chai';
 import { ZipFile } from 'yazl';
-import fsp from 'fs-promise';
+import fs from 'fs-extra';
 import Bundler from './../../src/index';
 import SourceBundler from './../../src/SourceBundler';
 import ModuleBundler from './../../src/ModuleBundler';
@@ -41,7 +41,7 @@ describe('Bundler', () => {
         include: ['src/**/*'],
       });
 
-      expect(fsp.existsSync(fileName));
+      expect(fs.existsSync(fileName));
     }).timeout(10000);
   });
 });
